@@ -15,38 +15,41 @@
         <div class="center">
           <ul>
             <li>
-              <router-link :class="isActive('/about') ? 'active' : ''" class="router" to="/about"
-                ><h1>about</h1></router-link
-              >
+              <router-link :class="isActive('/about') ? 'active' : ''" class="router" to="/about">
+                <h1 :class="{ active: isActive('/about') }">about</h1>
+              </router-link>
             </li>
             <li>
               <router-link
                 :class="isActive('/education') ? 'active' : ''"
                 class="router"
                 to="/education"
-                ><h1>education</h1></router-link
               >
+                <h1 :class="{ active: isActive('/education') }">education</h1>
+              </router-link>
             </li>
             <li>
-              <router-link :class="isActive('/skills') ? 'active' : ''" class="router" to="/skills"
-                ><h1>skills</h1></router-link
-              >
+              <router-link :class="isActive('/skills') ? 'active' : ''" class="router" to="/skills">
+                <h1 :class="{ active: isActive('/skills') }">skills</h1>
+              </router-link>
             </li>
             <li>
               <router-link
                 :class="isActive('/contact') ? 'active' : ''"
                 class="router"
                 to="/contact"
-                ><h1>contact</h1></router-link
               >
+                <h1 :class="{ active: isActive('/contact') }">contact</h1>
+              </router-link>
             </li>
             <li>
               <router-link
                 :class="isActive('/project') ? 'active' : ''"
                 class="router"
                 to="/project"
-                ><h1>project</h1></router-link
               >
+                <h1 :class="{ active: isActive('/project') }">project</h1>
+              </router-link>
             </li>
           </ul>
           <div class="components">
@@ -172,7 +175,7 @@ export default {
 .page2 {
   width: fit-content;
   height: fit-content;
-  margin: 50px 10px;
+  margin: 60px 15px;
 }
 .page1 > img {
   width: 150px;
@@ -206,15 +209,13 @@ h2 {
   color: #847a86;
 }
 .router:hover {
-  color: #847a86;
+  color: #8f8791;
+  text-decoration: none;
 }
 .router {
   text-decoration: none;
   color: #4a4a4a;
   font-weight: 600;
-}
-.active {
-  border-bottom: 2px solid #333;
 }
 router-view {
   margin-top: 20px;
@@ -225,21 +226,24 @@ router-view {
   height: 500px;
   margin: 0 auto;
 }
+.center ul li h1 {
+  text-decoration: none;
+  transition: all 0.1s linear;
+}
 .center > ul > li {
   list-style: none;
   transition: all 0.3s linear;
   position: relative;
+  text-decoration: none;
 }
 
 .center > ul > li:hover .router {
   color: #847a86;
 }
-
-.router {
+.center ul li h1.active {
+  color: rgb(0, 0, 0);
   text-decoration: none;
-  color: #4a4a4a;
-  font-weight: 600;
-  position: relative;
+  transform: translateY(-3px);
 }
 
 .router::after {
